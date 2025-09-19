@@ -4,9 +4,9 @@ import streamlit as st
 
 car_data = pd.read_csv('vehicles_us.csv')
 
-st.header('Análisis interactivo de anuncios de coches 🚗')
+st.header('royecto 7 🚗')
 
-# Histograma por año y marca
+# Histograma agrupado por año y marca
 hist_button = st.button('Mostrar histograma por año y marca')
 if hist_button:
     car_data['brand'] = car_data['model'].str.split().str[0]
@@ -20,7 +20,7 @@ if hist_button:
     )
     st.plotly_chart(fig, use_container_width=True)
 
-# Gráfico  dispersión odómetro vs precio
+# Gráfico de dispersión odómetro vs precio
 scatter_button = st.button('Mostrar gráfico odómetro vs precio')
 if scatter_button:
     st.write('Relación entre kilometraje y precio')
@@ -29,7 +29,7 @@ if scatter_button:
         x="odometer",
         y="price",
         color="model",
-        title="Relación entre Kilometraje y Precio",
-        labels={"odometer": "Kilometraje (millas)", "price": "Precio en USD"}
+        title="Relación entre Millaje y Precio",
+        labels={"odometer": "Millaje", "price": "Precio en USD"}
     )
     st.plotly_chart(fig, use_container_width=True)
