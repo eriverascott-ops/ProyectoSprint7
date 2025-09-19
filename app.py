@@ -4,13 +4,12 @@ import streamlit as st
 
 car_data = pd.read_csv('vehicles_us.csv')
 
-st.header("Proyecto Sprint 7 - Datos de un Sitio de Venta de Autos 🚗")
+st.header('Proyecto Sprint 7 - Datos de un Sitio de Venta de Autos 🚗')
 
-# Histograma agrupado por año y marca
-hist_button = st.button('Cantidad de autos por año y marca')
-if hist_button:
+#histograma
+build_histogram = st.checkbox('Mostrar histograma por año y marca')
+if build_histogram:
     car_data['brand'] = car_data['model'].str.split().str[0]
-    st.write('Histograma: cantidad de autos por año y marca')
     fig = px.histogram(
         car_data,
         x="model_year",
@@ -20,16 +19,15 @@ if hist_button:
     )
     st.plotly_chart(fig, use_container_width=True)
 
-# Gráfico de dispersión odómetro vs precio
-scatter_button = st.button('Relación entre Millaje y precio')
-if scatter_button:
-    st.write('Relación entre Millaje y precio')
+# dispersión
+build_scatter = st.checkbox('Mostrar gráfico odómetro vs precio')
+if build_scatter:
     fig = px.scatter(
         car_data,
         x="odometer",
         y="price",
         color="model",
         title="Relación entre Millaje y Precio",
-        labels={"odometer": "Millaje", "price": "Precio en USD"}
+        labels={"odometer": "Millaje (millas)", "price": "Precio en USD"}
     )
     st.plotly_chart(fig, use_container_width=True)
