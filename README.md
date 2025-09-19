@@ -7,6 +7,7 @@ La aplicación web permite visualizar información de un data set de anuncios de
 
 - Un histograma de la cantidad de autos disponibles por año y marca.
 - Un diagrama de dispersión entre kilometraje y precio.
+- Botones interactivos al hacer clic en las marcas y modelos.
 
 
 ## Archivos
@@ -24,4 +25,4 @@ pip install -r requirements.txt
 Ejecutar la aplicación:
 streamlit run app.py
 
-La aplicación se abrirá automáticamente en tu navegador en http://localhost:8501/
+El acceso a la aplicación es en el enlace: https://proyectosprint7-9ups.onrender.com
