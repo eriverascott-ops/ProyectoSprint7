@@ -17,7 +17,7 @@ if hist_button:
         x="model_year",
         color="brand",
         barmode="group",
-        title="Cantidad de carros por año y marca"
+        title="Cantidad de carros por año y marca",
         labels={"brand": "Marca", "model_year": "Año"}
     )
     st.plotly_chart(fig, use_container_width=True)
