@@ -4,7 +4,7 @@ import streamlit as st
 
 car_data = pd.read_csv('vehicles_us.csv')
 
-st.header(Proyecto Sprint 7 - Datos de un Sitio de Venta de Autos 🚗)
+st.header("Proyecto Sprint 7 - Datos de un Sitio de Venta de Autos 🚗")
 
 # Histograma agrupado por año y marca
 hist_button = st.button('Cantidad de autos por año y marca')
