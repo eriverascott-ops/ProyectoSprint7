@@ -7,7 +7,7 @@ car_data = pd.read_csv('vehicles_us.csv')
 st.header(Proyecto Sprint 7 - Datos de un Sitio de Venta de Autos 🚗)
 
 # Histograma agrupado por año y marca
-hist_button = st.button('Mostrar histograma por año y marca')
+hist_button = st.button('Cantidad de autos por año y marca')
 if hist_button:
     car_data['brand'] = car_data['model'].str.split().str[0]
     st.write('Histograma: cantidad de autos por año y marca')
@@ -21,9 +21,9 @@ if hist_button:
     st.plotly_chart(fig, use_container_width=True)
 
 # Gráfico de dispersión odómetro vs precio
-scatter_button = st.button('Mostrar gráfico odómetro vs precio')
+scatter_button = st.button('Relación entre Millaje y precio')
 if scatter_button:
-    st.write('Relación entre kilometraje y precio')
+    st.write('Relación entre Millaje y precio')
     fig = px.scatter(
         car_data,
         x="odometer",
