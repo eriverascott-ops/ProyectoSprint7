@@ -1,4 +1,3 @@
-#opcion 1
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -18,7 +17,7 @@ if hist_button:
         color="brand",
         barmode="group",
         title="Cantidad de carros por año y marca",
-        labels={"brand": "Marca", "model_year": "Año"}
+        labels={"model_year": "Año", "brand": "Marca", "count": " "}
     )
     st.plotly_chart(fig, use_container_width=True)
 
