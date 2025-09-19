@@ -8,12 +8,17 @@ car_data = pd.read_csv('vehicles_us.csv')
 st.header("Proyecto Sprint 7 - Datos de un Sitio de Venta de Autos 🚗")
 
 # Histograma agrupado por año y marca
-hist_button = st.button('Cantidad de autos por año y marca')
-if hist_button:
-    car_data['brand'] = car_data['model'].str.split().str[0]
-    st.write('Histograma: cantidad de autos por año y marca')
+selected_brands = st.multiselect(
+    "Selecciona una o varias marcas:",
+    options=car_data['model'].str.split().str[0].unique(),
+    default=["ford", "toyota"]  # puedes poner marcas comunes por defecto
+)
+
+if st.button('Cantidad de autos por año y marca'):
+    filtered_data = car_data[car_data['brand'].isin(selected_brands)]
+    st.write(f'Histograma: cantidad de autos para {", ".join(selected_brands)}')
     fig = px.histogram(
-        car_data,
+        filtered_data,
         x="model_year",
         color="brand",
         barmode="group",
